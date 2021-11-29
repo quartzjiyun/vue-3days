@@ -144,6 +144,14 @@ const routes = [
       import(
         /* webpackChunkName: "extra", webpackPrefetch:true */ '../views/3_extra/RenderingShow.vue'
       )
+  },
+  {
+    path: '/assignment/usercreate',
+    name: 'UserCreate',
+    component: () =>
+      import(
+        /* webpackChunkName: "assignment", webpackPrefetch:true */ '../views/8_assignment/UserCreate.vue'
+      )
   }
 ]
 
