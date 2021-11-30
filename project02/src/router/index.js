@@ -154,6 +154,38 @@ const routes = [
       )
   },
   {
+    path: '/extra/computed',
+    name: 'Computed',
+    component: () =>
+      import(
+        /* webpackChunkName: "extra", webpackPrefetch:true */ '../views/3_extra/Computed.vue'
+      )
+  },
+  {
+    path: '/extra/watch',
+    name: 'Watch',
+    component: () =>
+      import(
+        /* webpackChunkName: "extra", webpackPrefetch:true */ '../views/3_extra/Watch.vue'
+      )
+  },
+  {
+    path: '/reuse/component1',
+    name: 'ReuseComponent',
+    component: () =>
+      import(
+        /* webpackChunkName: "reuse", webpackPrefetch:true */ '../views/4_reuse/ReuseComponent.vue'
+      )
+  },
+  {
+    path: '/reuse/component2',
+    name: 'ReuseComponent2',
+    component: () =>
+      import(
+        /* webpackChunkName: "reuse", webpackPrefetch:true */ '../views/4_reuse/ReuseComponent2.vue'
+      )
+  },
+  {
     path: '/assignment/usercreate',
     name: 'UserCreate',
     component: () =>

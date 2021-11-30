@@ -13,7 +13,11 @@ export default {
     return {
       valueModel: 'South Korea',
       numberModel: 0,
-      list: []
+      list: [],
+      date: null,
+      date2: null,
+      month: null,
+      time: null
     }
   },
   setup() {},
@@ -29,7 +33,6 @@ export default {
   //   },
   mounted() {
     console.log('mounted')
-    this.getSomeData()
   },
   //   beforeUpdate() {},
   updated() {},

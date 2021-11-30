@@ -1,7 +1,7 @@
 <template>
   <div>
     <input type="number" v-model.number="num1" />
-    <div class="container" :class="{ 'text-red': num1 === 3 }">
+    <div :class="{ 'text-red': num1 === 3, container: true }">
       클래스 바인딩
     </div>
   </div>
