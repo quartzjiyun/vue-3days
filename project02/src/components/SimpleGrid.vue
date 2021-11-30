@@ -2,7 +2,7 @@
   <table>
     <thead>
       <tr>
-        <th v-if="selectType !== ''"></th>
+        <th v-if="selectType === 'radio' || selectType === 'checkbox'"></th>
         <th :key="i" v-for="(h, i) in headers">{{ h.title }}</th>
       </tr>
     </thead>
@@ -53,6 +53,10 @@ export default {
     checkedKey: {
       type: String,
       default: ''
+    },
+    eventName: {
+      type: String,
+      default: 'change-item'
     }
   },
   data() {
@@ -68,10 +72,10 @@ export default {
   methods: {
     doChange() {
       if (this.selectType === 'radio') {
-        this.$emit('change-item', this.checkedItem)
+        this.$emit(this.eventName, this.checkedItem)
         // console.log(this.checkedItem)
       } else if (this.selectType === 'checkbox') {
-        this.$emit('change-item', this.checkedItems)
+        this.$emit(this.eventName, this.checkedItems)
         // console.log(this.checkedItems)
       }
     }

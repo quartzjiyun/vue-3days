@@ -5,8 +5,9 @@
     <simple-grid
       :headers="headers"
       :items="userList"
-      selectType="radio"
+      :selectType="selectType"
       checkedKey="id"
+      eventName="change-item"
       @change-item="doChange"
     />
   </div>
@@ -24,12 +25,13 @@ export default {
         { title: 'Email', key: 'email' },
         { title: 'Phone', key: 'phone' },
         { title: 'Company', key: 'company' },
-        // { title: 'Gender', key: 'gender' },
+        { title: 'Gender', key: 'gender' },
         { title: 'Address', key: 'address' }
       ],
       userList: [],
       chekcedItem: '',
-      chekcedItems: []
+      chekcedItems: [],
+      selectType: 'radio'
     }
   },
   setup() {},
@@ -45,11 +47,21 @@ export default {
       console.log(this.userList)
     },
     doChange(data) {
-      this.chekcedItem = data
+      if (this.selectType === 'radio') {
+        this.chekcedItem = data
+      } else if (this.selectType === 'checkbox') {
+        this.chekcedItems = data
+      }
+
       console.log(data)
     },
-    doDelete() {
+    async doDelete() {
       // this.chekcedItem
+      const r = await axios.delete(
+        `http://localhost:3000/users/${this.chekcedItem}`
+      )
+      console.log(r)
+      this.getUserList()
     }
   }
 }
